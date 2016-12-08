@@ -1,0 +1,13 @@
+p {
+	background: green;
+}
+
+p {
+	background:url("../img/pic/game01-logo.png");
+}
+.p {
+	background:url("../img/pic/focus01.jpg");
+}
+.pp {
+	background:url("../img/pic/game04-logo.png");
+}

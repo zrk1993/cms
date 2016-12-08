@@ -1,0 +1,41 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "前端项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "gulp": "gulp"
+  },
+  "keywords": [
+    "cms"
+  ],
+  "author": "renkun",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-batch": "^1.0.5",
+    "gulp-clean": "^0.3.2",
+    "gulp-css-spriter": "^0.3.3",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-file-include": "^1.0.0",
+    "gulp-md5-plus": "^0.2.5",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.0.5",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.11",
+    "run-sequence": "^1.2.2",
+    "webpack": "^1.13.3",
+    "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {
+    "css-loader": "^0.26.1",
+    "less-loader": "^2.2.3",
+    "postcss-loader": "^1.2.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1"
+  }
+}
