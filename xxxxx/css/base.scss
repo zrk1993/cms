@@ -1,0 +1,14 @@
+@import "lib/normalize";
+@import "common/head";
+
+
+@media only  screen and (min-width: 960px){
+  .main{
+    margin: 0 auto;
+    width: 960px;
+  }
+  .head{
+    margin: 0 auto;
+    width: 960px;
+  }
+}

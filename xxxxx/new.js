@@ -28,8 +28,8 @@ rl.question("页面名是什么？",function(answer){
     <meta name="keywords" content=""/>  
     <meta name="author" content="" />  
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="../css/base.less">
-    <link rel="stylesheet" type="text/css" href="../css/${pagename}.less">
+    <link rel="stylesheet" type="text/css" href="../css/base.scss">
+    <link rel="stylesheet" type="text/css" href="../css/${pagename}.scss">
   </head>
   <body>
     @@include('./common/head.html')
@@ -49,11 +49,11 @@ rl.question("页面名是什么？",function(answer){
       }
   });
 
-  fs.writeFile(__dirname + `/css/${pagename}.less`, '', {flag: 'a'}, function (err) {
+  fs.writeFile(__dirname + `/css/${pagename}.scss`, '', {flag: 'a'}, function (err) {
      if(err) {
       console.error(err);
       } else {
-         console.log(`创建${pagename}.less`);
+         console.log(`创建${pagename}.scss`);
       }
   });
 

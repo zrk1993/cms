@@ -9,7 +9,7 @@ const spriter = require('gulp-css-spriter');
 const plumber = require('gulp-plumber');
 const htmlmin = require('gulp-htmlmin');
 
-const less = require('gulp-less');
+const sass = require('gulp-sass');
 const runSequence = require('run-sequence');
 const webpackStream = require('webpack-stream');
 const named = require('vinyl-named');
@@ -20,7 +20,20 @@ const config = {
     'public': path.resolve(__dirname, '../public'),		//发布静态资源 css js img 路径
     'view': path.resolve(__dirname, '../views')			//发布'html路径'
 };
-const webpackConfig = {};
+const webpackConfig = {
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
+            }
+        ]
+    }
+};
 
 const tempdir = path.resolve(__dirname, 'temp');//临时目录
 
@@ -50,10 +63,10 @@ gulp.task('copy:img', function () {
 //css 压缩 文件名添加MD5
 gulp.task('build:css', function () {
     const timestamp = +new Date();
-    return gulp.src(['css/*.css', 'css/*.less'])
+    return gulp.src(['css/*.css', 'css/*.scss'])
         .pipe(plumber())
         .pipe(rev()) //添加MD5
-        .pipe(less())
+        .pipe(sass().on('error', sass.logError))
         .pipe(spriter({
             includeMode: 'implicit',//explicit：默认不加入雪碧图，，implicit：默认加入雪碧图/* @meta {"spritesheet": {"include": true}} */
             spriteSheet: config.public + '/img/spritesheet' + timestamp + '.png',//img保存路径
@@ -84,17 +97,22 @@ gulp.task("revreplace", function () {
     //noinspection JSUnusedGlobalSymbols
     const revReplaceOptions = {
         manifest: manifest,
-        replaceInExtensions: ['.js', '.css', '.html', '.less'],
+        replaceInExtensions: ['.js', '.css', '.html', '.scss'],
         modifyUnreved: (filename) => {
             if (filename.indexOf('.js') > -1) {
                 return '../js/' + filename;
             }
-            if (filename.indexOf('.less') > -1) {
+            if (filename.indexOf('.scss') > -1) {
                 return '../css/' + filename;
             }
         },
         modifyReved: (filename) => {
-            return '/' + filename
+            if (filename.indexOf('.js') > -1) {
+                return '/js/' + filename;
+            }
+            if (filename.indexOf('.css') > -1) {
+                return '/css/' + filename;
+            }
         }
     };
     return gulp.src(config.view + '/*.html')
@@ -104,7 +122,7 @@ gulp.task("revreplace", function () {
 });
 
 
-const watchFiles = ['js/*.js', 'css/*.css', 'css/*.less', 'html/**/*.html'];
+const watchFiles = ['js/*.js', 'css/*.css', 'css/*.sass', 'css/*.scss', 'html/**/*.html'];
 
 gulp.task('watch', function () {
     gulp.watch(watchFiles, function (event) {
