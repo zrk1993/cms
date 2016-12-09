@@ -122,7 +122,7 @@ gulp.task("revreplace", function () {
 });
 
 
-const watchFiles = ['js/*.js', 'css/*.css', 'css/*.sass', 'css/*.scss', 'html/**/*.html'];
+const watchFiles = ['js/**/*.js', 'css/*.css', 'css/*.sass', 'css/**/*.scss', 'html/**/*.html'];
 
 gulp.task('watch', function () {
     gulp.watch(watchFiles, function (event) {

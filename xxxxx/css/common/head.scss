@@ -1,5 +1,46 @@
-.head{
-  display: flex;
+.header{
+  position: fixed;
+  top:0;
+  right: 0;
+  left: 0;
   height: 4em;
+  display: flex;
   background-color: #fff;
+  border-bottom: 1px solid #f1f1f1;
+
+  .container{
+    display: flex;
+    align-items:center;
+
+    .log{
+      height: 65%;
+      cursor: pointer;
+
+      img{
+        height: 100%;
+      }
+    }
+
+    .topnav{
+      display: flex;
+      justify-content:flex-end;
+      align-content:center;
+      flex-grow: 1;
+      height: 100%;
+
+      .navitem{
+        align-self:center;
+        padding: 0 .8em;
+      }
+
+      .add{
+        height: 30%;
+        width: 0;
+        margin-right: .8em;
+        img{
+          height: 100%;
+        }
+      }
+    }
+  }
 }

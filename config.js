@@ -6,7 +6,7 @@ const path = require('path');
 
 const config = {
   // 程序运行的端口
-  port: 3333,
+  port: 8888,
 };
 
 if (process.env.NODE_ENV === 'test') {

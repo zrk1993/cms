@@ -1,14 +1,16 @@
 @import "lib/normalize";
 @import "common/head";
 
+body{
+  background-color: #f8f9fa;
+}
 
 @media only  screen and (min-width: 960px){
-  .main{
-    margin: 0 auto;
+  .container{
     width: 960px;
   }
-  .head{
-    margin: 0 auto;
-    width: 960px;
-  }
+}
+
+.container{
+  margin: 0 auto;
 }
