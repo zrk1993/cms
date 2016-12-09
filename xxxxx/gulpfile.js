@@ -1,26 +1,28 @@
-var gulp = require('gulp');
-var clean = require('gulp-clean');
-var fileinclude = require('gulp-file-include');
-var rev = require('gulp-rev');
-var revCollector = require('gulp-rev-collector');
-var minifyHTML = require('gulp-minify-html');
-var uglify = require('gulp-uglify');
-var cssmin = require('gulp-cssmin');
-var spriter = require('gulp-css-spriter');
-var plumber = require('gulp-plumber');
-var runSequence = require('run-sequence');
-var webpackStream = require('webpack-stream');
-var named = require('vinyl-named');
-var path = require('path');
+const gulp = require('gulp');
+const clean = require('gulp-clean');
+const fileinclude = require('gulp-file-include');
+const rev = require('gulp-rev');
+const revReplace = require('gulp-rev-replace');
+const uglify = require('gulp-uglify');
+const cssmin = require('gulp-cssmin');
+const spriter = require('gulp-css-spriter');
+const plumber = require('gulp-plumber');
+const htmlmin = require('gulp-htmlmin');
 
-var config = {
+const less = require('gulp-less');
+const runSequence = require('run-sequence');
+const webpackStream = require('webpack-stream');
+const named = require('vinyl-named');
+const path = require('path');
+
+const config = {
     'ENV': 'dev',//dev or product
     'public': path.resolve(__dirname, '../public'),		//发布静态资源 css js img 路径
     'view': path.resolve(__dirname, '../views')			//发布'html路径'
 };
-var webpackconfig = {};
+const webpackConfig = {};
 
-var tempdir = path.resolve(__dirname, 'temp');//临时目录
+const tempdir = path.resolve(__dirname, 'temp');//临时目录
 
 //清理目标文件夹/文件
 gulp.task('clean', function () {
@@ -47,15 +49,16 @@ gulp.task('copy:img', function () {
 
 //css 压缩 文件名添加MD5
 gulp.task('build:css', function () {
-    var timestamp = +new Date();
-    return gulp.src('css/*.css')
+    const timestamp = +new Date();
+    return gulp.src(['css/*.css', 'css/*.less'])
         .pipe(plumber())
+        .pipe(rev()) //添加MD5
+        .pipe(less())
         .pipe(spriter({
             includeMode: 'implicit',//explicit：默认不加入雪碧图，，implicit：默认加入雪碧图/* @meta {"spritesheet": {"include": true}} */
-            spriteSheet: 'dist/img/spritesheet' + timestamp + '.png',//img保存路径
-            pathToSpriteSheetFromCSS: '../img/spritesheet' + timestamp + '.png'//在css文件img的路径
+            spriteSheet: config.public + '/img/spritesheet' + timestamp + '.png',//img保存路径
+            pathToSpriteSheetFromCSS: '../img/spritesheet' + timestamp + '.png'//在css文件中img的路径
         }))
-        .pipe(rev()) //添加MD5
         .pipe(cssmin()) //压缩
         .pipe(gulp.dest(path.join(config.public, 'css')))
         .pipe(rev.manifest())
@@ -67,7 +70,7 @@ gulp.task('build:js', function () {
     return gulp.src('js/*.js')
         .pipe(plumber())
         .pipe(named())
-        .pipe(webpackStream(webpackconfig))
+        .pipe(webpackStream(webpackConfig))
         .pipe(rev())  //添加MD5
         .pipe(uglify())	//压缩 混淆
         .pipe(gulp.dest(path.join(config.public, 'js')))
@@ -75,32 +78,39 @@ gulp.task('build:js', function () {
         .pipe(gulp.dest(path.join(tempdir, 'rev/js')));
 });
 
-// 将html的css js 引用路径 替换为  修改(增加MD5)后的路径
-gulp.task('rev', function () {
-    return gulp.src([path.join(tempdir, 'rev/**/*.json'), config.view + '/*.html'])
-        .pipe(revCollector({
-            replaceReved: true,
-            dirReplacements: {
-                'css': '/dist/css',
-                'js': '/dist/js',
-                'cdn/': function (manifest_value) {
-                    return '//cdn' + (Math.floor(Math.random() * 9) + 1) + '.' + 'exsample.dot' + '/img/' + manifest_value;
-                }
+// 将html的css js 引用路径 替换为  修改(增加MD5)后的路径   并压缩
+gulp.task("revreplace", function () {
+    const manifest = gulp.src(path.join(tempdir, 'rev/**/rev-manifest.json'));
+    //noinspection JSUnusedGlobalSymbols
+    const revReplaceOptions = {
+        manifest: manifest,
+        replaceInExtensions: ['.js', '.css', '.html', '.less'],
+        modifyUnreved: (filename) => {
+            if (filename.indexOf('.js') > -1) {
+                return '../js/' + filename;
             }
-        }))
-        .pipe(minifyHTML({
-            empty: true,
-            spare: true
-        }))
+            if (filename.indexOf('.less') > -1) {
+                return '../css/' + filename;
+            }
+        },
+        modifyReved: (filename) => {
+            return '/' + filename
+        }
+    };
+    return gulp.src(config.view + '/*.html')
+        .pipe(revReplace(revReplaceOptions))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(config.view));
 });
 
-var watchfiles = ['js/*.js', 'css/*.css', 'html/**/*.html'];
+
+const watchFiles = ['js/*.js', 'css/*.css', 'css/*.less', 'html/**/*.html'];
 
 gulp.task('watch', function () {
-    gulp.watch(watchfiles, function (event) {
-        gulp.start('default');
-        console.log('File ' + event.path + ' was ' + event.type + ', build finished');
+    gulp.watch(watchFiles, function (event) {
+        gulp.start('default', function () {
+            console.log('File ' + event.path + ' was ' + event.type + ', build finished');
+        });
     });
 });
 
@@ -110,7 +120,7 @@ gulp.task('dev', ['default', 'watch']);
 gulp.task('default', function (done) {
     runSequence('clean',
         ['fileinclude', 'copy:img', 'build:css', 'build:js'],
-        'rev',
+        'revreplace',
         done);
 });
 
