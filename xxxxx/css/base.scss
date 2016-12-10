@@ -1,5 +1,13 @@
+/***
+  包含：
+  1. 网站公共组件的的样式如:head.heml的样式。
+  2. 主题样式
+  3. 全局样式
+ */
+@import "common/color";
 @import "lib/normalize";
 @import "common/head";
+
 
 body{
   background-color: #f8f9fa;
@@ -10,7 +18,24 @@ body{
     width: 960px;
   }
 }
+@media only  screen and (max-width: 960px){
+  .container{
+    width: 95%;
+  }
+}
 
 .container{
   margin: 0 auto;
+}
+
+//可点击按钮
+.action{
+  color: $colorLightGray;
+  cursor: pointer;
+  &.true{
+    color: $colorMain;
+  }
+  &:hover{
+    color: $colorMain;
+  }
 }

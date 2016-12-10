@@ -33,10 +33,11 @@ rl.question("页面名是什么？",function(answer){
   </head>
   <body>
     @@include('./common/head.html')
-    <div>
+    <div class='container'>
       
     </div>
     @@include('./common/food.html')
+    <script type="text/javascript" src='../js/base.js'></script>
     <script type="text/javascript" src='../js/${pagename}.js'></script>
   </body>
 </html>`;

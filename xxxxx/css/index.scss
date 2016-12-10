@@ -1,0 +1,41 @@
+
+@import "common/color";
+
+.content{
+  display: flex;
+  margin-top: 4.8em;
+
+  .sidebar{
+    flex-grow:3;
+    flex-shrink:1;
+  }
+
+  .main{
+    flex-shrink:1;
+    flex-grow:10;
+    background-color: #fff;
+
+    .navbar{
+      display: flex;
+      border-bottom: 1px solid $colorBorder;
+      .title{
+        color: $colorDeepBlack;
+      }
+
+      .navwrap{
+        display: flex;
+        flex-direction:row-reverse;
+        align-items:center;
+        flex-grow: 1;
+        color: $colorLightGray;
+
+        .navitem{
+          padding: 0 .6em;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+}
+

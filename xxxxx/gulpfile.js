@@ -31,7 +31,8 @@ const webpackConfig = {
                     presets: ['es2015']
                 }
             }
-        ]
+        ],
+        externals:['$','zepoto']
     }
 };
 

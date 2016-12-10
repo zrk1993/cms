@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>base page</title>
     <meta charset="utf-8"/>
     <meta name='description' content=''>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="keywords" content=""/>  
-    <meta name="author" content="" />  
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="../css/base.scss">
     <link rel="stylesheet" type="text/css" href="../css/index.scss">
-  </head>
-  <body>
-    @@include('./common/head.html')
+</head>
+<body>
+@@include('./common/head.html')
+<div class="container content">
     <div class="main">
-        qq
+        <div class="navbar">
+            <p class="title">最新文章</p>
+            <div class="navwrap">
+                <div class="navitem hot action">热门</div>|
+                <div class="navitem newest action true">最新</div>|
+                <div class="navitem comment action">评论</div>
+            </div>
+        </div>
+        <div class="article-wrap">
+            <div class="article">
+                <div class="user-meta">
+                    <img src="">
+                    <span>user</span>·
+                    <span>time</span>
+                </div>
+                <div class="title">NewSQL 究竟新在哪里？</div>
+                <div class="summary">近几年来，数据库领域出现了一种新的关系数据库类型，称为NewSQL，例如，Google的Spanner，Amazon的Aurora等等，这些数据库相对于传统数据库来讲，区别在哪里？What's Really New with NewSQL?给了很好的总结，本篇文章主要是总结该论文的观点，最后会有一</div>
+                <div class="user-actions">
+                    <span>点赞</span>
+                    <span>评论</span>
+                    <span>收藏</span>
+                    <span>阅读全文</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <script type="text/javascript" src='../js/index.js'></script>
-  </body>
+    <div class="sidebar">
+        <div class="column">
+            11111111111111111111111111111111
+        </div>
+        <div class="column">
+            11
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='../js/base.js'></script>
+<script type="text/javascript" src='../js/index.js'></script>
+</body>
 </html>
