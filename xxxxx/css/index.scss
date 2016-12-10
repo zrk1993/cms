@@ -18,6 +18,7 @@
     .navbar{
       display: flex;
       border-bottom: 1px solid $colorBorder;
+      padding: 0 1em;
       .title{
         color: $colorDeepBlack;
       }
@@ -32,6 +33,78 @@
         .navitem{
           padding: 0 .6em;
           font-weight: 600;
+        }
+      }
+    }
+
+    .article-wrap{
+
+      .article{
+        margin-bottom: 5px;
+        border-bottom: 1px solid $colorBorder;
+        padding: 0 1em 15px;
+        .info-row{
+          padding-top: 10px;
+          display: flex;
+        }
+
+        .user-meta{
+          align-items: center;
+          color: $colorBlack;
+
+          .user-avatar{
+            height: 2em;
+            width: 2em;
+          }
+          .user-name{
+            margin: 0 .2em 0 .6em;
+          }
+          .pub-time{
+            margin: 0 .6em 0 .2em;
+          }
+        }
+
+        .screenshot{
+
+            .screenshot-img{
+              width: 100%;
+              padding-top: 40%;
+              background-repeat:no-repeat;
+              background-size:cover;
+              background-position:center;
+            }
+        }
+
+        .title{
+          color: $colorDeepBlack;
+          font-size: xx-large;
+          font-weight: 700;
+        }
+
+        .summary{
+          padding: 10px 2px;
+          color: $colorBlack;
+          letter-spacing: 2px;
+          line-height:150%;
+        }
+
+        .shop{
+          align-items: center;
+          color: $colorBlack;
+          font-size: .9em;
+          padding-top: 0;
+          font-weight: 500;
+
+          div{
+            margin-right: 1em;
+          }
+
+          .read-more{
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row-reverse;
+            border: none;
+          }
         }
       }
     }
