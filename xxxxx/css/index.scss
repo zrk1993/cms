@@ -5,14 +5,9 @@
   display: flex;
   margin-top: 4.8em;
 
-  .sidebar{
-    flex-grow:3;
-    flex-shrink:1;
-  }
-
   .main{
-    flex-shrink:1;
     flex-grow:10;
+    flex-basis: 10em;
     background-color: #fff;
 
     .navbar{
@@ -32,7 +27,7 @@
 
         .navitem{
           padding: 0 .6em;
-          font-weight: 600;
+          font-weight: 500;
         }
       }
     }
@@ -91,15 +86,17 @@
         .shop{
           align-items: center;
           color: $colorBlack;
-          font-size: .9em;
+          font-size: 1.2em;
           padding-top: 0;
+          padding-left: 5px;
           font-weight: 500;
 
           div{
-            margin-right: 1em;
+            margin-right: 1.3em;
           }
 
           .read-more{
+            font-size: .8em;
             flex-grow: 1;
             display: flex;
             flex-direction: row-reverse;
@@ -110,5 +107,85 @@
     }
   }
 
+  .sidebar{
+    flex-grow:4;
+    flex-basis: 4em;
+    margin-left: 1em;
+
+    .column{
+      background: #ffffff;
+      padding: .8em 1em;
+      margin-bottom: 1em;
+
+      & > .title{
+        margin-top: 0;
+        padding-bottom: 7px;
+        border-bottom: 1px solid $colorBorder;
+        margin-bottom: 21px;
+        position: relative;
+
+        &:after {
+          content: "";
+          width: 5em;
+          height: 1px;
+          background: $colorMain;
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+        }
+      }
+    }
+
+    .tag{
+
+      .tag-cloud{
+        font-size: .9em;
+        a{
+          border: 1px solid $colorBorder;
+          padding: 2px 7px;
+          line-height: 1.5em;
+          display: inline-block;
+          margin: 0 7px 7px 0;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+
+    .top{
+      .top-article-list{
+        padding-left: 5px;
+
+        .top-article{
+          margin-bottom: .7em;
+
+          .title{
+            color: $colorBlack;
+            cursor: pointer;
+            font-weight: 300;
+            font-size: .97em;
+            &:hover{
+              color: $colorMain;
+            }
+          }
+          .shop{
+            padding-left: 3px;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            font-size: .9em;
+
+            div{
+              margin-right: .9em;
+
+              span{
+                padding: 0 .5em;
+                font-size: .8em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
