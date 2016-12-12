@@ -1,128 +1,159 @@
-
 @import "common/color";
 
-.content{
-  display: flex;
-  margin-top: 4.8em;
-
-  .main{
-    flex-grow:10;
+.content {
+  margin-top: 1em;
+  .main {
+    flex-grow: 10;
     flex-basis: 10em;
-    background-color: #fff;
+    background-color: #fdfdfd;
+    border: 1px solid #e2e1e1;
 
-    .navbar{
+    .nav-bar {
       display: flex;
-      border-bottom: 1px solid $colorBorder;
       padding: 0 1em;
-      .title{
-        color: $colorDeepBlack;
-      }
+      border-bottom: 1px solid #e2e3e3;
+      background-color: #f7f7f7;
+      color: $colorBlack;
+      margin-bottom: .5em;
+      font-size: .9em;
 
-      .navwrap{
-        display: flex;
-        flex-direction:row-reverse;
-        align-items:center;
-        flex-grow: 1;
-        color: $colorLightGray;
-
-        .navitem{
-          padding: 0 .6em;
-          font-weight: 500;
+      .nav-item {
+        padding: 1em .6em .7em;
+        font-weight: 500;
+        margin-bottom: -1px;
+        cursor: pointer;
+        &.select ,&:hover{
+          border-bottom: 2px solid $colorMain;
+          color: $colorMain;
         }
+
       }
     }
 
-    .article-wrap{
+    .topics {
+      padding: 0;
+      margin: 0;
+      .topic {
+        display: flex;
+        padding: .7em 1em;
+        border-bottom: 1px solid #e0e0e0;
+        &:hover{
+          background-color: #f8f8f8;
+        }
 
-      .article{
-        margin-bottom: 5px;
-        border-bottom: 1px solid $colorBorder;
-        padding: 0 1em 15px;
-        .info-row{
-          padding-top: 10px;
+        .user-info {
+          width: 2.3em;
           display: flex;
-        }
-
-        .user-meta{
           align-items: center;
-          color: $colorBlack;
-
-          .user-avatar{
-            height: 2em;
-            width: 2em;
-          }
-          .user-name{
-            margin: 0 .2em 0 .6em;
-          }
-          .pub-time{
-            margin: 0 .6em 0 .2em;
+          flex-shrink: 0;
+          .user-avatar {
+            border-radius: 100%;
+            width: 100%;
+            padding-top: 100%;
+            background-size: cover;
+            background-position: center;
           }
         }
 
-        .screenshot{
+        .topic-count {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: .2em .8em 0;
 
-            .screenshot-img{
-              width: 100%;
-              padding-top: 40%;
-              background-repeat:no-repeat;
-              background-size:cover;
-              background-position:center;
-            }
-        }
 
-        .title{
-          color: $colorDeepBlack;
-          font-size: xx-large;
-          font-weight: 700;
-        }
-
-        .summary{
-          padding: 10px 2px;
-          color: $colorBlack;
-          letter-spacing: 2px;
-          line-height:150%;
-        }
-
-        .shop{
-          align-items: center;
-          color: $colorBlack;
-          font-size: 1.2em;
-          padding-top: 0;
-          padding-left: 5px;
-          font-weight: 500;
-
-          div{
-            margin-right: 1.3em;
-          }
-
-          .read-more{
-            font-size: .8em;
-            flex-grow: 1;
+          .count-vote {
             display: flex;
-            flex-direction: row-reverse;
-            border: none;
+            justify-content: center;
+            color: $colorMain;
+            font-size: 1.2em;
+          }
+
+          .count-set {
+            display: flex;
+            color: #aaa;
+            font-size: .7em;
+
+            .count-replies {
+              text-overflow: ellipsis;
+            }
+            .count_seperator{
+              margin: 0 .15em 0 .1em;
+            }
+
+            .count-visits {
+
+            }
+          }
+        }
+
+        .topic-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          flex-grow: 1;
+
+          .topic-label {
+            margin-right: .5em;
+            background-color: #e5e5e5;
+            border-radius: 1px;
+            padding: .3em .4em .2em;
+            font-size: .7em;
+            color: #999;
+          }
+
+          .topic-title {
+            color: #555;
+            font-size: 1em;
+          }
+        }
+
+        .topic-reply-last {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-left: 2em;
+
+          .reply-user {
+            width: 1.4em;
+            .user-avatar {
+              border-radius: 100%;
+              width: 100%;
+              padding-top: 100%;
+              background-size: cover;
+              background-position: center;
+            }
+          }
+
+          .reply-time {
+            font-size: .75em;
+            min-width: 4em;
+            text-align: right;
+            color: #aaa;
           }
         }
       }
     }
   }
 
-  .sidebar{
-    flex-grow:4;
-    flex-basis: 4em;
+  .sidebar {
+    flex-grow: 3;
+    flex-basis: 3em;
     margin-left: 1em;
+    font-size: .9em;
 
-    .column{
+    .column {
       background: #ffffff;
       padding: .8em 1em;
       margin-bottom: 1em;
+      border: 1px solid #e2e1e1;
 
-      & > .title{
+      & > .title {
         margin-top: 0;
         padding-bottom: 7px;
         border-bottom: 1px solid $colorBorder;
-        margin-bottom: 21px;
         position: relative;
+        color: #666;
 
         &:after {
           content: "";
@@ -134,56 +165,9 @@
           bottom: -1px;
         }
       }
-    }
 
-    .tag{
+      .content{
 
-      .tag-cloud{
-        font-size: .9em;
-        a{
-          border: 1px solid $colorBorder;
-          padding: 2px 7px;
-          line-height: 1.5em;
-          display: inline-block;
-          margin: 0 7px 7px 0;
-          transition: all 0.2s ease;
-        }
-      }
-    }
-
-    .top{
-      .top-article-list{
-        padding-left: 5px;
-
-        .top-article{
-          margin-bottom: .7em;
-
-          .title{
-            color: $colorBlack;
-            cursor: pointer;
-            font-weight: 300;
-            font-size: .97em;
-            &:hover{
-              color: $colorMain;
-            }
-          }
-          .shop{
-            padding-left: 3px;
-            margin-top: 6px;
-            display: flex;
-            align-items: center;
-            font-size: .9em;
-
-            div{
-              margin-right: .9em;
-
-              span{
-                padding: 0 .5em;
-                font-size: .8em;
-              }
-            }
-          }
-        }
       }
     }
   }

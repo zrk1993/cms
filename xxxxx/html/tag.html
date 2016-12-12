@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>base page</title>
+    <meta charset="utf-8"/>
+    <meta name='description' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keywords" content=""/>  
+    <meta name="author" content="" />  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/base.scss">
+    <link rel="stylesheet" type="text/css" href="../css/tag.scss">
+  </head>
+  <body>
+    @@include('./common/head.html')
+    <div class="tag-header">
+      <div class="container">
+        <div class="tag-name">精华</div>
+        <div class="tag-info">81982 关注，5285 文章，555131 喜欢</div>
+      </div>
+    </div>
+    <div class='container content'>
+      <div class="main">
+        <div class="navbar">
+          <p class="title">精华</p>
+          <div class="navwrap">
+            <div class="navitem hot action">热门</div>
+            <div class="navitem newest action true">最新</div>
+            <div class="navitem comment action">评论</div>
+          </div>
+        </div>
+        <ul class="entries">
+          <li class="entry-item">
+              <div class="screenshot-wrap">
+                <div class="screenshot" style="background-image: url('https://dn-mhke0kuv.qbox.me/8b99527ebc7aa6152649.jpg?imageView2/1/w/1080/h/320/q/85/format/jpg/interlace/1')"></div>
+              </div>
+              <div class="entry-info"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    @@include('./common/foot.html')
+    <script type="text/javascript" src='../js/base.js'></script>
+    <script type="text/javascript" src='../js/tag.js'></script>
+  </body>
+</html>

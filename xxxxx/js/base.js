@@ -7,8 +7,8 @@ const $ = window.zepoto = window.$ = require('./lib/webpack-zepto');
 
 !function () {
     //给 .dropdown 设置下拉菜单事件
-    $('.dropdown').bind('click',function(){
-        const dropdownmenu =$(this).find('.dropdown-menu');
+    $('.drop-down').bind('click',function(){
+        const dropdownmenu =$(this).find('.drop-down-menu');
         dropdownmenu.css('display',dropdownmenu.css('display')=='block'?'none':'block');
     })
 }();

@@ -1,0 +1,72 @@
+@import "common/color";
+
+body{
+  background-color: #fff;
+}
+.tag-header{
+  background-image: url(https://dn-mhke0kuv.qbox.me/51d6d58806f3a929.jpg?imageView/2/w/1500/h/300/q/100/format/png);
+  color: #fff;
+
+  .tag-name{
+    padding: 2em 0 1em;
+    text-align: center;
+  }
+  .tag-info{
+    padding: 0 0 2em;
+    text-align: center;
+  }
+}
+
+.content{
+
+
+  .main{
+    flex-grow:10;
+
+    .navbar{
+      display: flex;
+      padding: 0 1em;
+      .title{
+        font-size: large;
+        color: $colorDeepBlack;
+      }
+
+      .navwrap{
+        display: flex;
+        flex-direction:row-reverse;
+        align-items:center;
+        flex-grow: 1;
+        color: $colorLightGray;
+
+        .navitem{
+          padding: 0 .6em;
+        }
+      }
+    }
+
+    .entries{
+      padding: 0 1.5em;
+      .entry-item{
+        display: flex;
+        list-style-type: none;
+
+        .screenshot-wrap{
+          width: 82px;
+
+          .screenshot{
+            width: 100%;
+            padding-top: 100%;
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position:center;
+          }
+        }
+
+        .entry-info{
+
+        }
+
+      }
+    }
+  }
+}

@@ -5,3 +5,7 @@
 exports.index = function (req, res) {
     res.render('index.html');
 };
+
+exports.tag = function (req, res) {
+    res.render('tag.html');
+};

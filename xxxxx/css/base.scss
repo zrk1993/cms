@@ -11,7 +11,7 @@
 
 
 body{
-  background-color: #f8f9fa;
+  background-color: #ecedee;
   font-family: -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
 }
 
@@ -37,6 +37,16 @@ body{
   margin-left: auto;
 }
 
+.content{
+  display: flex;
+}
+
+@media screen and(max-width: 640px){
+  .sidebar{
+    display: none;
+  }
+}
+
 
 //可点击按钮
 .action{
@@ -50,8 +60,10 @@ body{
   }
 }
 
+
 a{
   text-decoration:none;
+  cursor: pointer;
   &:link{
     color: $colorBlack;
   }

@@ -16,85 +16,226 @@
 @@include('./common/head.html')
 <div class="container content">
     <div class="main">
-        <div class="navbar">
-            <p class="title">最新文章</p>
-            <div class="navwrap">
-                <div class="navitem hot action">热门</div>|
-                <div class="navitem newest action true">最新</div>|
-                <div class="navitem comment action">评论</div>
-            </div>
+        <div class="nav-bar">
+            <div class="nav-item">热门</div>
+            <div class="nav-item  select">精华</div>
+            <div class="nav-item">投票</div>
+            <div class="nav-item">最近</div>
+            <div class="nav-item">零回复</div>
         </div>
-        <div class="article-wrap">
-            <div class="article">
-                <div class="info-row user-meta">
-                    <img class="user-avatar" src="https://user-gold-cdn.xitu.io/2016/11/29/0268c7fb635ec803cc2c2d636bfe2aab">
-                    <span class="user-name">user</span>·
-                    <span class="pub-time">time</span>
+        <ul class="topics">
+            <li class="topic">
+                <div class="user-info" title="user-name">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
                 </div>
-                <div class="info-row screenshot">
-                    <div class="info-row screenshot-img" style="background-image: url('https://dn-mhke0kuv.qbox.me/8b99527ebc7aa6152649.jpg?imageView2/1/w/1080/h/320/q/85/format/jpg/interlace/1')"></div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
                 </div>
-                <div class="info-row title">NewSQL 究竟新在哪里？</div>
-                <div class="info-row summary">近几年来，数据库领域出现了一种新的关系数据库类型，称为NewSQL，例如，Google的Spanner，Amazon的Aurora等等，这些数据库相对于传统数据库来讲，区别在哪里？What's Really New with NewSQL?给了很好的总结，本篇文章主要是总结该论文的观点，最后会有一</div>
-                <div class="info-row shop">
-                    <div class="action like ion-thumbsup"></div>
-                    <div class="action comment ion-android-textsms"></div>
-                    <div class="action collect ion-android-favorite"></div>
-                    <div class="action read-more">阅读全文</div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title"><a>Laravel Dinner 03 期][上海] 线下聚会开始报名啦</a></div>
                 </div>
-            </div>
-        </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+            <li class="topic">
+                <div class="user-info">
+                    <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                </div>
+                <div class="topic-count">
+                    <div class="count-vote">32</div>
+                    <div class="count-set">
+                        <div class="count-replies">23</div>
+                        <div class="count_seperator">/</div>
+                        <div class="count-visits">56</div>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <div class="topic-label">问答</div>
+                    <div class="topic-title">Laravel Dinner 03 期][上海] 线下聚会开始报名啦</div>
+                </div>
+                <div class="topic-reply-last">
+                    <div class="reply-user">
+                        <div class="user-avatar" style="background-image: url('/img/u.png')"></div>
+                    </div>
+                    <div class="reply-time">1天前</div>
+                </div>
+            </li>
+
+        </ul>
+
     </div>
     <div class="sidebar">
-        <div class="column top">
-            <h4 class="title">热门文章</h4>
-            <div class="top-article-list">
 
-                <div class="top-article">
-                    <div class="title">Android增量编译3～5秒的背后</div>
-                    <div class="shop">
-                        <div class="action like ion-thumbsup"><span>111231</span></div>
-                        <div class="action comment ion-android-textsms"><span>23213</span></div>
-                    </div>
-                </div>
-                <div class="top-article">
-                    <div class="title">Android增量编译3～5秒的背后</div>
-                    <div class="shop">
-                        <div class="action like ion-thumbsup"><span>111231</span></div>
-                        <div class="action comment ion-android-textsms"><span>23213</span></div>
-                    </div>
-                </div>                <div class="top-article">
-                <div class="title">Android增量编译3～5秒的背后</div>
-                <div class="shop">
-                    <div class="action like ion-thumbsup"><span>111231</span></div>
-                    <div class="action comment ion-android-textsms"><span>23213</span></div>
-                </div>
-            </div>
+        <div class="column">
+            <div class="title">小贴士</div>
+            <div class="content">
+q
             </div>
         </div>
-        <div class="column tag">
-            <h4 class="title">标签云</h4>
-            <div class="tag-cloud">
-                <a href="/tag/jquery/">jQuery</a>
-                <a href="/tag/ghost-0-7-ban-ben/">Ghost 0.7 版本</a>
-                <a href="/tag/opensource/">开源</a>
-                <a href="/tag/zhu-shou-han-shu/">助手函数</a>
-                <a href="/tag/tag-cloud/">标签云</a>
-                <a href="/tag/navigation/">导航</a>
-                <a href="/tag/customize-page/">自定义页面</a>
-                <a href="/tag/static-page/">静态页面</a>
-                <a href="/tag/roon-io/">Roon.io</a>
-                <a href="/tag/configuration/">配置文件</a>
-                <a href="/tag/upyun/">又拍云存储</a>
-                <a href="/tag/upload/">上传</a>
-                <a href="/tag/handlebars/">Handlebars</a>
-                <a href="/tag/email/">邮件</a>
-                <a href="/tag/shortcut/">快捷键</a>
-                <a href="/tag/yong-hu-zhi-nan/">用户指南</a>
-                <a href="/tag/theme-market/">主题市场</a>
-                <a href="/tag/release/">新版本发布</a>
-
-                <a href="/tag-cloud/">...</a>
+        <div class="column">
+            <div class="title">推荐资源</div>
+            <div class="content">
+q
+            </div>
+        </div>
+        <div class="column">
+            <div class="title">活跃用户</div>
+            <div class="content">
+q
+            </div>
+        </div>
+        <div class="column">
+            <div class="title">统计信息</div>
+            <div class="content">
+q
             </div>
         </div>
     </div>
