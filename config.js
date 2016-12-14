@@ -10,7 +10,7 @@ const config = {
 };
 
 if (process.env.NODE_ENV === 'test') {
-  config.db = 'mongodb://127.0.0.1/node_club_test';
+  config.db = 'mongodb://127.0.0.1/test';
 }
 
 module.exports = config;
