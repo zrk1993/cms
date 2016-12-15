@@ -1,3 +1,4 @@
 [2016-12-13 15:25:35.406] [ERROR] cheese - connect to undefined error:  failed to connect to server [undefined:27017] on first connect
 [2016-12-13 16:23:38.907] [ERROR] cheese - connect to undefined error:  failed to connect to server [undefined:27017] on first connect
 [2016-12-13 16:25:27.315] [ERROR] cheese - connect to undefined error:  failed to connect to server [undefined:27017] on first connect
+[2016-12-15 12:14:01.757] [ERROR] cheese - connect to undefined error:  failed to connect to server [localhost:27017] on first connect

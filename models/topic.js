@@ -7,6 +7,8 @@ const Schema    = mongoose.Schema;
 const ObjectId  = Schema.ObjectId;
 const config    = require('../config');
 
+const moment = require('moment');
+
 const TopicSchema = new Schema({
     title: { type: String },
     content: { type: String },
@@ -31,6 +33,9 @@ TopicSchema.index({create_at: -1});
 TopicSchema.index({top: -1, last_reply_at: -1});
 TopicSchema.index({author_id: 1, create_at: -1});
 
+TopicSchema.virtual('last_reply_ago').get(function () {
+    return moment(this.last_reply_at).fromNow();
+});
 
 mongoose.model('Topic', TopicSchema);
 

@@ -20,6 +20,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-css-spriter": "^0.3.3",
     "gulp-cssmin": "^0.1.7",
+    "gulp-ejs": "^2.3.0",
     "gulp-file-include": "^1.0.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-less": "^3.3.0",

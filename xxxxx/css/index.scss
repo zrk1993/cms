@@ -5,7 +5,7 @@
   .main {
     flex-grow: 10;
     flex-basis: 10em;
-    background-color: #fdfdfd;
+    background-color: #fefefe;
     border: 1px solid #e2e1e1;
 
     .nav-bar {
@@ -22,11 +22,14 @@
         font-weight: 500;
         margin-bottom: -1px;
         cursor: pointer;
+
         &.select ,&:hover{
           border-bottom: 2px solid $colorMain;
-          color: $colorMain;
+          color: $colorMain !important;
         }
-
+        &:visited{
+          color: #666;
+        }
       }
     }
 
@@ -103,8 +106,13 @@
           }
 
           .topic-title {
-            color: #555;
+            color: #444;
             font-size: 1em;
+            a{
+              &:visited{
+                font-size: 1em;
+              }
+            }
           }
         }
 
@@ -127,10 +135,40 @@
 
           .reply-time {
             font-size: .75em;
-            min-width: 4em;
+            min-width: 5em;
             text-align: right;
             color: #aaa;
           }
+        }
+      }
+    }
+
+    .pagination{
+      display: flex;
+      ul{
+        display: flex;
+        li{
+          border: 1px solid #ddd;
+          padding: 6px 12px;
+          list-style-type: none;
+        }
+
+        .disable{
+          cursor: not-allowed;
+          & a{
+            cursor: inherit;
+          }
+        }
+
+        .active{
+          background-color: #CFDFFC;
+          border-color: #BDCFEF !important;
+          color: $colorMain;
+        }
+
+        .pre , .next {
+
+
         }
       }
     }

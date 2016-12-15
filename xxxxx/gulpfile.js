@@ -9,6 +9,7 @@ const spriter = require('gulp-css-spriter');
 const plumber = require('gulp-plumber');
 const htmlmin = require('gulp-htmlmin');
 
+const ejs = require("gulp-ejs");
 const sass = require('gulp-sass');
 const runSequence = require('run-sequence');
 const webpackStream = require('webpack-stream');
@@ -52,6 +53,7 @@ gulp.task('fileinclude', function () {
             prefix: '@@',
             basepath: '@file'
         }))
+        .pipe(ejs())
         .pipe(gulp.dest(config.view));
 });
 

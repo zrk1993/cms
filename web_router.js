@@ -17,6 +17,6 @@ router.get('/signin', sign.showLogin);  // 进入登录页面
 
 router.get('/topic', topic.get);  // 进入登录页面
 
-router.get('/topic/newAndSave', topic.newAndSave);  //
+router.post('/topic/add', topic.add);  //add topic
 
 module.exports = router;
