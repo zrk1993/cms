@@ -52,7 +52,7 @@
         </ul>
         <div class="pagination">
             <ul>
-                <li class="pre"><a href="/?page=<%= current_page-1 %>">上一页</a></li>
+                        <li class="pre"><a href="/?page=<%= current_page-1 %>">上一页</a></li>
                 <% if(page_count < 10){ %>
                     <% for(var i=1 ;i < page_count ;i++){ %>
                         <li class="active"><a  href="/?page=<%= i %>"><%= i %></a></li>
@@ -70,11 +70,11 @@
                         <li class="<%= current_page== j ? 'active':'' %>"><a href="/?page=<%= j%>"><%= j %></a></li>
                         <% } %>
                     <% } %>
-                    <li class="disable"><a>...</a></li>
-                    <li class="<%= current_page==(page_count - 1) ? 'active':'' %>"><a href="/?page=<%= page_count-1 %>"><%= page_count - 1 %></a></li>
-                    <li class="<%= current_page==page_count ? 'active':'' %>"><a href="/?page=<%= page_count%>"><%= page_count  %></a></li>
+                        <li class="disable"><a>...</a></li>
+                        <li class="<%= current_page==(page_count - 1) ? 'active':'' %>"><a href="/?page=<%= page_count-1 %>"><%= page_count - 1 %></a></li>
+                        <li class="<%= current_page==page_count ? 'active':'' %>"><a href="/?page=<%= page_count%>"><%= page_count  %></a></li>
                 <% } %>
-                <li class="next"><a href="/?page=<%= page_count+1 %>">下一页</a></li>
+                        <li class="next"><a href="/?page=<%= page_count+1 %>">下一页</a></li>
             </ul>
         </div>
     </div>

@@ -12,10 +12,13 @@ mongoose.connect('mongodb://localhost/test', {
         logger.error('connect to %s error: ', config.db, err.message);
         process.exit(1);
     }
+    logger.info('connect to %s : ', config.db);
 });
 mongoose.Promise = Promise;
 
 // models
 require('./topic');
+require('./User');
 
 exports.Topic        = mongoose.model('Topic');
+exports.User        = mongoose.model('User');

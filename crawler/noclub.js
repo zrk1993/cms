@@ -10,7 +10,9 @@
  示例：/api/v1/topics
  */
 
-
+const models = require('../models');
+const Topic = models.Topic;
+const User = require('../proxy/user');
 
 const request = require('request');
 let page = 0;
@@ -19,25 +21,67 @@ const uri = `https://cnodejs.org/api/v1/topics?page=${page}&limit=${limit}&mdren
 request(uri, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         console.log(body); // Show the HTML for the Google homepage.
-    }
-    let topics = JSON.parse(body);
-    console.log(topics.data.length);
-    console.log(uri);
-    if(!!topics.success){
-        topics.data.forEach((topic)=>{
-            request.post({
-                    url: 'http://localhost:8888/topic/add',
-                    form: {title: topic.title,tab:topic.tab,t_content:topic.content,authorId:topic.author.avatar_url}
-                },
-                function (err, httpResponse, body) {
-                    /* ... */
-                    if(err){
-                        return console.log(err.toString());
-                    }
-                    console.log(body)
-                }
-            )
-        });
 
+        let topics = JSON.parse(body);
+        console.log(topics.data.length);
+        console.log(uri);
+        if (!!topics.success) {
+            topics.data.forEach((topic) => {
+                let topicModel = new Topic();
+                topicModel.title = topic.title;
+                topicModel.content = topic.content;
+                topicModel.author_id = topic.author_id;
+                topicModel.top = topic.top;
+                topicModel.good = topic.good;
+                topicModel.reply_count = topic.reply_count;
+                topicModel.visit_count = topic.visit_count;
+                topicModel.vote_count = topic.vote_count;
+                topicModel.create_at = topic.create_at;
+                topicModel.update_at = topic.update_at;
+                topicModel.last_reply_at = topic.last_reply_at;
+                topicModel.content_is_html = false;
+                topicModel.tab = topic.tab;
+
+                topicModel.save(function (err) {
+                    if (err) {
+                        console.log(err.toString())
+                    }
+
+                    crawlUser(topic.author.loginname);
+                });
+            });
+
+        }
     }
 });
+
+/***
+ * get /user/:loginname 用户详情
+
+ 示例：/api/v1/user/alsotang
+ * @param userName
+ */
+function crawlUser(userName) {
+    const uri = `https://cnodejs.org/api/v1/user/${userName}`;
+    request(uri, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(userName); // Show the HTML for the Google homepage.
+
+            let user = JSON.parse(body).data;
+            if (!!user) {
+
+                User.newAndSave(user.loginname,
+                    user.loginname,
+                    '123456',
+                    '1051455824@qq.com',
+                    user.avatar_url,
+                    false,
+                    function (err) {
+                        if (err) {
+                            console.log(err.toString())
+                        }
+                    });
+            }
+        }
+    });
+}

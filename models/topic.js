@@ -23,7 +23,7 @@ const TopicSchema = new Schema({
     update_at: { type: Date, default: Date.now },   //最后更新时间
     last_reply: { type: ObjectId },                   //最后回复人的id
     last_reply_at: { type: Date, default: Date.now },
-    content_is_html: { type: Boolean },               //内容类型
+    content_is_html: { type: Boolean , default: false},//内容类型
     tab: {type: String},
     deleted: {type: Boolean, default: false},          //是否已经删除
 });
