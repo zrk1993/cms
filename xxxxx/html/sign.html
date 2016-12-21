@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>base page</title>
+    <meta charset="utf-8"/>
+    <meta name='description' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keywords" content=""/>  
+    <meta name="author" content="" />  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/base.scss">
+    <link rel="stylesheet" type="text/css" href="../css/sign.scss">
+  </head>
+  <body>
+    @@include('./common/head.html')
+    <div class='container'>
+      <!--登录-->
+      <form action="/signIn" method="post">
+        <div>
+          <label>Username:</label>
+          <input type="text" name="username"/>
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" name="password"/>
+        </div>
+        <div>
+          <input type="submit" value="Log In"/>
+        </div>
+      </form>
+      <!--登录 end-->
+      <!--注册-->
+      <form action="/signUp" method="post">
+        <div>
+          <label>Username:</label>
+          <input type="text" name="username"/>
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" name="password"/>
+        </div>
+        <div>
+          <label>email:</label>
+          <input type="email" name="email"/>
+        </div>
+        <div>
+          <input type="submit" value="Log In"/>
+        </div>
+      </form>
+      <!--注册 end-->
+    </div>
+    @@include('./common/foot.html')
+    <script type="text/javascript" src='../js/base.js'></script>
+    <script type="text/javascript" src='../js/sign.js'></script>
+  </body>
+</html>
