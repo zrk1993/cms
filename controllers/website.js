@@ -16,6 +16,9 @@ exports.index = function (req, res) {
     Topic.getTopicsByQuery(query, options, function (err, topics) {
         res.render('index.html',{topics:topics,tab:tab,page_count:20,current_page:page});
     });
+    console.dir('q');
+    console.dir(req.session);
+    console.dir('q');
 
 };
 

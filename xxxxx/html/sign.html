@@ -1,57 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>base page</title>
     <meta charset="utf-8"/>
     <meta name='description' content=''>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="keywords" content=""/>  
-    <meta name="author" content="" />  
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/base.scss">
     <link rel="stylesheet" type="text/css" href="../css/sign.scss">
-  </head>
-  <body>
-    @@include('./common/head.html')
-    <div class='container'>
-      <!--登录-->
-      <form action="/signIn" method="post">
-        <div>
-          <label>Username:</label>
-          <input type="text" name="username"/>
+</head>
+<body>
+@@include('./common/head.html')
+<div class='container main'>
+    <div class="login row">
+        <div class="login_local column column-40 column-offset-10">
+            <div class="title_txt">
+                <h2>欢迎回来</h2>
+                <span>还没有账号？<a href="/signup">立即注册</a></span>
+            </div>
+            <form class="LoginForm" action="/signin" method="post">
+                <label class="login-username">
+                    <i class="icon-user-line"></i>
+                    <input type="text" name="username" class="log-input login-name"
+                           placeholder="请输入用户名/邮箱" autocomplete="off">
+                </label>
+                <label class="login-password">
+                    <i class="icon-lock-line"></i>
+                    <input id="password" type="password" name="password" autocomplete="off"
+                           class="log-input login-pwd mls" placeholder="请输入密码">
+                </label>
+                <button class="login-button">登录</button>
+                <p class="login-msg"><a class="y login-forget" href="/" target="_blank">忘记密码?</a>
+                    如登录出现异常,请清理浏览器缓存后再尝试。</p>
+            </form>
         </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" name="password"/>
+        <div class="login-auth column column-40 column-offset-10">
+            <h2>第三方账号登录</h2>
+            <div class="login-party">
+                <a href="http://ui.cn/oauth/sina/" class="github button button-clear">
+                    <i class="icon"></i>
+                    <span>github登录</span>
+                </a>
+                <br>
+                <a href="http://ui.cn/oauth/qq/" class="qq button button-clear">
+                    <i class="icon"></i>
+                    <span>QQ帐号登录</span>
+                </a>
+                <br>
+                <a href="http://ui.cn/oauth/mi/" class="wechat button button-clear">
+                    <i class="icon"></i>
+                    <span>微信帐号登录</span>
+                </a>
+            </div>
         </div>
-        <div>
-          <input type="submit" value="Log In"/>
-        </div>
-      </form>
-      <!--登录 end-->
-      <!--注册-->
-      <form action="/signUp" method="post">
-        <div>
-          <label>Username:</label>
-          <input type="text" name="username"/>
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" name="password"/>
-        </div>
-        <div>
-          <label>email:</label>
-          <input type="email" name="email"/>
-        </div>
-        <div>
-          <input type="submit" value="Log In"/>
-        </div>
-      </form>
-      <!--注册 end-->
     </div>
-    @@include('./common/foot.html')
-    <script type="text/javascript" src='../js/base.js'></script>
-    <script type="text/javascript" src='../js/sign.js'></script>
-  </body>
+</div>
+@@include('./common/foot.html')
+<script type="text/javascript" src='../js/base.js'></script>
+<script type="text/javascript" src='../js/sign.js'></script>
+</body>
 </html>

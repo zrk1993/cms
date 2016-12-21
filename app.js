@@ -10,7 +10,7 @@ const compression = require('compression');
 const passport = require('passport');
 
 
-require('./services/passport');//passport策略配置
+require('./middlewares/auth');//passport策略配置
 const web_router = require('./web_router');
 const config = require('./config.js');
 
@@ -32,6 +32,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', web_router);

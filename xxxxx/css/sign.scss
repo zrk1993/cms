@@ -1,0 +1,83 @@
+@import "common/color";
+
+.main{
+  margin-top: 1em;
+  background-color: #fff;
+}
+
+.login{
+
+  padding: 2em 0;
+
+  .login_local{
+
+    .title_txt{
+      display: flex;
+      h2{
+        flex-grow: 1;
+        font-size: 1.3em;
+        font-weight: 400;
+      }
+      span{
+        font-size: 1em;
+      }
+    }
+
+    .LoginForm{
+
+      .login-button{
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  .login-auth{
+    h2{
+      font-size: 1.3em;
+      font-weight: 400;
+    }
+
+    .login-party{
+        line-height: 1em;
+      a{
+        display: flex;
+        align-items: center;
+        color: #fff;
+        width: 12em;
+        font-size: .9em;
+        font-weight: 300;
+        padding: 0 1em;
+        margin-bottom: 0;
+
+        .icon{
+          display: inline-block;
+          width: 1.3em;
+          height: 1.3em;
+          margin-right: .5em;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+
+      .github{
+        background-color: #666;
+        i{
+          margin-bottom: .3em;
+          background-image: url("/img/github.png");
+        }
+      }
+      .qq{
+        background-color: #22a4ff;
+        i{
+          background-image: url("/img/qq.png");
+        }
+      }
+      .wechat{
+        background-color: #609700;
+        i{
+          background-image: url("/img/weixin.png");
+        }
+      }
+    }
+  }
+}

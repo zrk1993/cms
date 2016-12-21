@@ -11,7 +11,7 @@ const auth = require('./middlewares/auth');
 const router = express.Router();
 
 
-router.get('/',auth.userRequired, website.index);
+router.get('/', auth.userRequired, website.index);
 
 
 router.get('/signIn', sign.showSignIn);
