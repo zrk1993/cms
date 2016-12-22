@@ -49,7 +49,6 @@
           margin-bottom: 0;
 
           .form-group {
-            margin-left: .5em;
             font-size: .6em;
             input {
               border: none;
@@ -65,37 +64,55 @@
       }
 
       .user {
-        height: 50%;
-        padding-right: 2em;
         margin-right: 0;
         position: relative;
-        text-align: left;
-        width: 0;
-        img {
-          height: 100%;
-        }
+        padding-right: 0;
+        display: flex;
+        align-items: center;
 
-        .sub-nav {
-          background-color: #fff;
-          color: $colorBlack;
+        .sign{
+          display:  flex;
+          flex-direction: row;
           font-size: .8em;
 
-          .drop-down-menu {
-            position: absolute;
-            right: 0;
-            top: 2em;
-            padding: 0 1em;
-            width: 6em;
-            display: none;
-            text-align: left;
-            list-style: none;
-            background-color: #fff;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
-            border: 1px solid $colorBorder;
-            border-radius: 4px;
+          .sign-in{
+            margin-left: 1em;
+          }
 
-            li {
-              margin: 1em 0;
+          a:visited{
+            color: inherit;
+          }
+
+        }
+
+        .drop-down{
+          display: flex;
+          img {
+            height: 1.3em;
+          }
+
+          .sub-nav {
+            background-color: #fff;
+            color: $colorBlack;
+            font-size: .8em;
+
+            .drop-down-menu {
+              position: absolute;
+              right: 0;
+              top: 2em;
+              padding: 0 1em;
+              width: 8em;
+              display: none;
+              text-align: left;
+              list-style: none;
+              background-color: #fff;
+              box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+              border: 1px solid $colorBorder;
+              border-radius: 4px;
+
+              li {
+                margin: 1em 0;
+              }
             }
           }
         }

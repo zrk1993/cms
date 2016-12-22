@@ -11,13 +11,14 @@ const auth = require('./middlewares/auth');
 const router = express.Router();
 
 
-router.get('/', auth.userRequired, website.index);
+router.get('/',  website.index);
 
 
 router.get('/signIn', sign.showSignIn);
-router.get('/signUp', sign.showSignIn);
+router.get('/signUp', sign.showSignUp);
 router.post('/signIn', sign.signIn);
 router.post('/signUp', sign.signUp);
+router.get('/logOut', sign.logOut);
 
 
 router.get('/topic', topic.get);

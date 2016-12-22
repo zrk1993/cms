@@ -18,16 +18,25 @@
 			<div class="nav-item action  ion-android-notifications">
 
 			</div>
-			<div class="nav-item user drop-down ">
-				<img src="https://user-gold-cdn.xitu.io/2016/11/29/0268c7fb635ec803cc2c2d636bfe2aab">
-				<div class="sub-nav">
-					<ul class="drop-down-menu">
-						<li>我的主页</li>
-						<li>设置</li>
-						<li>关于</li>
-						<li>退出</li>
-					</ul>
+			<div class="nav-item user">
+				<% if(typeof(user) == "undefined"){ %>
+				<div class="sign">
+					<a href="/signUp" class="sign-up">注册</a>
+					<a href="/signIn" class="sign-in">登录</a>
 				</div>
+				<% }else{ %>
+				<div class="drop-down">
+					<img class="avatar" src="https://user-gold-cdn.xitu.io/2016/11/29/0268c7fb635ec803cc2c2d636bfe2aab">
+					<div class="sub-nav">
+						<ul class="drop-down-menu">
+							<li><a href="/">我的主页</a></li>
+							<li><a href="#">设置</a></li>
+							<li><a href="#">关于</a></li>
+							<li><a href="/logOut">退出</a></li>
+						</ul>
+					</div>
+				</div>
+				<% } %>
 			</div>
 		</div>
 	</div>

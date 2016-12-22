@@ -9,7 +9,6 @@ const spriter = require('gulp-css-spriter');
 const plumber = require('gulp-plumber');
 const htmlmin = require('gulp-htmlmin');
 
-const ejs = require("gulp-ejs");
 const sass = require('gulp-sass');
 const runSequence = require('run-sequence');
 const webpackStream = require('webpack-stream');
@@ -53,7 +52,6 @@ gulp.task('fileinclude', function () {
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(ejs())
         .pipe(gulp.dest(config.view));
 });
 
@@ -124,15 +122,25 @@ gulp.task("revreplace", function () {
         .pipe(gulp.dest(config.view));
 });
 
-
-const watchFiles = ['js/**/*.js', 'css/*.css', 'css/*.sass', 'css/**/*.scss', 'html/**/*.html'];
-
 gulp.task('watch', function () {
-    gulp.watch(watchFiles, function (event) {
-        gulp.start('default', function () {
-            console.log('File ' + event.path + ' was ' + event.type + ', build finished');
-        });
+
+    gulp.watch('js/**/*.js', function (event) {
+        runSequence('build:js',
+            'revreplace');
     });
+
+    gulp.watch(['css/*.css', 'css/*.sass', 'css/**/*.scss',], function (event) {
+        runSequence(
+            [ 'copy:img', 'build:css'],
+            'revreplace');
+    });
+
+    gulp.watch('html/**/*.html', function (event) {
+        runSequence('fileinclude',
+            'revreplace');
+    });
+
+
 });
 
 

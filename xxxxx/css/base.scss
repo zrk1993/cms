@@ -66,15 +66,15 @@ a{
   text-decoration:none;
   cursor: pointer;
   &:link{
-    color: $colorBlack;
+    color: inherit;
   }
   &:visited{
-    color: $colorLightGray;
+    color: inherit;
   }
   &:hover{
     color: $colorMain;
   }
   &:active{
-    color: $colorMain;
+    color: inherit;
   }
 }

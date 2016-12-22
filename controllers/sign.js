@@ -3,11 +3,14 @@ const passport = require('passport');
 const User = require('../proxy/user');
 
 exports.showSignIn = function (req, res) {
-    res.render('sign.html');
+    req.session._loginReferer = req.originalUrl;
+    res.render('sign.html',{user:req.user});
+    console.dir(req.user)
 };
 
 exports.showSignUp = function (req, res) {
-    res.render('sign.html');
+    res.render('sign.html',{user:req.user});
+    console.dir(req.user)
 };
 
 /**
@@ -22,7 +25,7 @@ exports.signIn = function (req, res,next) {
         }
         req.logIn(user, (err) => {
             if (err) { return next(err); }
-            res.end('success');
+            res.redirect(req.session._loginReferer);
         });
     })(req, res, next);
 };
@@ -44,4 +47,13 @@ exports.signUp = function (req, res) {
             res.end(user.toString());
         }
     });
+};
+
+/**
+ * 退出登录
+ */
+exports.logOut = function (req, res) {
+    //logOut()：别名为logout()作用是登出用户，删除该用户session。不带参数,由passport扩展了HTTP request。
+    req.logOut();
+    res.redirect('/');
 };

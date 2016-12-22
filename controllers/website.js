@@ -14,12 +14,8 @@ exports.index = function (req, res) {
     const options = { skip: (page - 1) * limit, limit: limit, sort: '-top -last_reply_at'};
 
     Topic.getTopicsByQuery(query, options, function (err, topics) {
-        res.render('index.html',{topics:topics,tab:tab,page_count:20,current_page:page});
+        res.render('index.html',{user:req.user,topics:topics,tab:tab,page_count:20,current_page:page});
     });
-    console.dir('q');
-    console.dir(req.session);
-    console.dir('q');
-
 };
 
 exports.tag = function (req, res) {

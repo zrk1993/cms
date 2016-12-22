@@ -16,12 +16,13 @@
 @@include('./common/head.html')
 <div class='container main'>
     <div class="login row">
+        <%  if(typeof(user) == "undefined") { %>
         <div class="login_local column column-40 column-offset-10">
             <div class="title_txt">
                 <h2>欢迎回来</h2>
-                <span>还没有账号？<a href="/signup">立即注册</a></span>
+                <span>还没有账号？<a href="/signUp">立即注册</a></span>
             </div>
-            <form class="LoginForm" action="/signin" method="post">
+            <form class="LoginForm" action="/signIn" method="post">
                 <label class="login-username">
                     <i class="icon-user-line"></i>
                     <input type="text" name="username" class="log-input login-name"
@@ -37,6 +38,32 @@
                     如登录出现异常,请清理浏览器缓存后再尝试。</p>
             </form>
         </div>
+        <% }else{ %>
+        <div class="login_local column column-40 column-offset-10">
+            <div class="title_txt">
+                <h2>欢迎回来</h2>
+                <span>已有账号？<a href="/signIn">立即登录</a></span>
+            </div>
+            <form class="LoginForm" action="/signUp" method="post">
+                <label class="login-username">
+                    <i class="icon-user-line"></i>
+                    <input type="text" name="username" class="log-input login-name"
+                           placeholder="请输入用户名" autocomplete="off">
+                </label>
+                <label class="login-password">
+                    <i class="icon-lock-line"></i>
+                    <input  type="password" name="password" autocomplete="off"
+                           class="log-input login-pwd mls" placeholder="请输入密码">
+                </label>
+                <label class="login-password">
+                    <i class="icon-lock-line"></i>
+                    <input  type="email" name="email" autocomplete="off"
+                           class="log-input login-pwd mls" placeholder="邮箱">
+                </label>
+                <button class="signup-button">注册</button>
+            </form>
+        </div>
+        <% } %>
         <div class="login-auth column column-40 column-offset-10">
             <h2>第三方账号登录</h2>
             <div class="login-party">
