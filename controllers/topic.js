@@ -9,11 +9,15 @@ exports.get=function (req,res) {
     res.end('q');
 };
 
+exports.edit=function (req, res) {
+  res.render('topicEdit',{user:req.user})
+};
+
 exports.add = function (req, res, next) {
-    const title   = validator.trim(req.body.title);
-    const tab     = validator.trim(req.body.tab);
-    const content = validator.trim(req.body.t_content);
-    const authorId = validator.trim(req.body.authorId);
+    const title   = req.body.title;
+    const tab     = req.body.tab;
+    const content = req.body.content;
+    const authorId = req.user._id;
 
     // 验证
     let editError;

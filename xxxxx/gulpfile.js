@@ -129,7 +129,7 @@ gulp.task('watch', function () {
             'revreplace');
     });
 
-    gulp.watch(['css/*.css', 'css/*.sass', 'css/**/*.scss',], function (event) {
+    gulp.watch(['css/*.css', 'css/*.sass', 'css/*.scss','css/**/*.scss',], function (event) {
         runSequence(
             [ 'copy:img', 'build:css'],
             'revreplace');

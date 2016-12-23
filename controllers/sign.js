@@ -4,12 +4,12 @@ const User = require('../proxy/user');
 
 exports.showSignIn = function (req, res) {
     req.session._loginReferer = req.originalUrl;
-    res.render('sign.html',{user:req.user});
+    res.render('sign.html',{isLogin:true});
     console.dir(req.user)
 };
 
 exports.showSignUp = function (req, res) {
-    res.render('sign.html',{user:req.user});
+    res.render('sign.html',{isLogin:false});
     console.dir(req.user)
 };
 
