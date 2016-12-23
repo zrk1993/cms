@@ -6,6 +6,14 @@ const UserSchema = new Schema({
   name: { type: String},
   pass: { type: String },
   email: { type: String},
+  picture: { type: String},
+  github:{
+      id:{type: String},
+      name:{type: String},
+      picture:{type: String},
+      url: { type: String},
+      bio:{type:String}
+  }
 });
 
 UserSchema.plugin(BaseModel);

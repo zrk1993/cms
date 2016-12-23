@@ -13,12 +13,20 @@ const router = express.Router();
 
 router.get('/',  website.index);
 
-
+//local 登陆
 router.get('/signIn', sign.showSignIn);
 router.get('/signUp', sign.showSignUp);
 router.post('/signIn', sign.signIn);
 router.post('/signUp', sign.signUp);
 router.get('/logOut', sign.logOut);
+
+//auth 登陆
+router.get('/auth/github',auth.authGitHub);
+router.get('/auth/github/callback', auth.authGitHubCallBack,function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+});
+
 
 
 router.get('/topic', topic.get);
