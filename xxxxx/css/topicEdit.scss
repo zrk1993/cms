@@ -1,0 +1,37 @@
+.content{
+  display: flex;
+  margin-top: 1em;
+  .main{
+    padding: 1em;
+    background-color: #fff;
+    .topic-edit{
+
+      .title{
+        font-size: 1.5em;
+      }
+
+      .topic-title{
+      }
+
+      .topic-content{
+        textarea{
+          min-height: 13em;
+        }
+      }
+
+    }
+  }
+
+  .side-bar{
+    padding: 1em;
+    margin-left: 1.2em;
+    background-color: #fff;
+
+    .title{
+      font-size: 1.5em;
+    }
+    p{
+      margin-bottom: .5em;
+    }
+  }
+}

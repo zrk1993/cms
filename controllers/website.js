@@ -5,6 +5,9 @@
 const config =require('../config');
 const Topic = require('../proxy/topic');
 
+/**
+ *  首页
+ */
 exports.index = function (req, res) {
     let page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;
@@ -16,8 +19,4 @@ exports.index = function (req, res) {
     Topic.getTopicsByQuery(query, options, function (err, topics) {
         res.render('index.html',{user:req.user,topics:topics,tab:tab,page_count:20,current_page:page});
     });
-};
-
-exports.tag = function (req, res) {
-    res.render('tag.html');
 };

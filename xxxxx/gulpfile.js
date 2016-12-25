@@ -99,6 +99,7 @@ gulp.task("revreplace", function () {
     const revReplaceOptions = {
         manifest: manifest,
         replaceInExtensions: ['.js', '.css', '.html', '.scss'],
+        //css,js的url变换: '../js/' -> '/js/'
         modifyUnreved: (filename) => {
             if (filename.indexOf('.js') > -1) {
                 return '../js/' + filename;

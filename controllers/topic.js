@@ -4,15 +4,26 @@
 const Topic = require('../proxy/topic');
 const validator = require('validator');
 
-
+/**
+ * GET  /topic/get
+ * 话题详情页
+ */
 exports.get=function (req,res) {
     res.end('q');
 };
 
+/**
+ * GET /topic/add
+ * 话题编辑页
+ */
 exports.edit=function (req, res) {
   res.render('topicEdit',{user:req.user})
 };
 
+/**
+ * POST /topic/add
+ * 话题提交api
+ */
 exports.add = function (req, res, next) {
     const title   = req.body.title;
     const tab     = req.body.tab;

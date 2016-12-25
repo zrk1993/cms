@@ -120,10 +120,13 @@ exports.userRequired = function (req, res, next) {
     next();
 };
 
+/**
+ * GET  /auth/github
+ */
 exports.authGitHub = function (req, res, next) {
     passport.authenticate('github')(req, res, next);
 };
-
+//github认证结果回调， /auth/github/callback
 exports.authGitHubCallBack = function (req, res, next) {
     passport.authenticate('github', { failureRedirect: '/login' })(req, res, next);
 };
