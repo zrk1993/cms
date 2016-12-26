@@ -18,7 +18,7 @@ mongoose.Promise = Promise;
 
 // models
 require('./topic');
-require('./User');
+require('./user');
 
 exports.Topic        = mongoose.model('Topic');
 exports.User        = mongoose.model('User');
