@@ -27,7 +27,7 @@
             <% topics.forEach(function(topic){ %>
             <li class="topic">
                 <div class="user-info" title="<%= topic.author_id%>">
-                    <div class="user-avatar" style="background-image: url('<%= topic.author_id %>')"></div>
+                    <div class="user-avatar" style="background-image: url('<%= topic.picture %>')"></div>
                 </div>
                 <div class="topic-count">
                     <div class="count-vote" title="点赞数"><%= topic.vote_count %></div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="topic-info">
                     <div class="topic-label"><%= topic.tab %></div>
-                    <div class="topic-title"><a><%= topic.title %></a></div>
+                    <div class="topic-title"><a href="/topic/<%=topic.id%>"><%= topic.title %></a></div>
                 </div>
                 <div class="topic-reply-last">
                     <div class="reply-user">

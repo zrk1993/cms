@@ -3,15 +3,33 @@
  */
 const Topic = require('../proxy/topic');
 const validator = require('validator');
+const marked = require('marked');
 
 /**
  * GET  /topic/get
  * 话题详情页
  */
 exports.get=function (req,res) {
-    const topicId = req.params.id;
-    Topic.findbyid('');
-    res.end('q');
+
+    Topic.getTopicById(req.params.id,(err,topic)=>{
+        if(err)return res.status(404).end();
+
+        topic.html = marked(topic.content, (err, parsedHtml)=>{
+
+            topic.parsedHtml = parsedHtml;
+            topic.create_at='1個月前';
+            topic.author = '小王';
+            topic.visit_count='1000';
+            topic.update_at='一天前';
+            topic.tab = '精華';
+
+            res.render('topic',{topic:topic});
+
+        })
+
+    });
+
+
 };
 
 /**

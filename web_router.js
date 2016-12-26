@@ -29,9 +29,10 @@ router.get('/auth/github/callback', auth.authGitHubCallBack,function(req, res) {
 
 
 
-router.get('/topic/:id', topic.get);
+
 router.post('/topic/add',auth.userRequired, topic.add);
 router.get('/topic/add', topic.edit);
+router.get('/topic/:id', topic.get);
 
 
 module.exports = router;

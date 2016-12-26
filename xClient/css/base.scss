@@ -3,10 +3,12 @@
   1. 网站公共组件的的样式如:head.heml的样式。
   2. 主题样式
   3. 全局样式
+  4. bootstrap柵格系統
  */
 @import "common/color";
 @import "lib/normalize";
 @import "lib/milligram";
+@import "lib/bootstrap.grid";
 @import "common/head";
 @import "common/foot";
 

@@ -5,6 +5,12 @@ const models     = require('../models');
 const Topic      = models.Topic;
 
 
+
+exports.getTopicById = function (id, callback) {
+    Topic.findById(id,callback)
+
+};
+
 exports.newAndSave = function (title, content, tab, authorId, callback) {
     const topic       = new Topic();
     topic.title     = title;

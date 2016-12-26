@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>base page</title>
+    <meta charset="utf-8"/>
+    <meta name='description' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="keywords" content=""/>  
+    <meta name="author" content="" />  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/base.scss">
+    <link rel="stylesheet" type="text/css" href="../css/topic.scss">
+  </head>
+  <body>
+    @@include('./common/head.html')
+    <div class='container content'>
+      <div class="row">
+        <div class="main col-sm-9">
+          <article class="article">
+            <div class="topic-header">
+              <h1 class="topic-title"><%= topic.title %></h1>
+              <div class="topic-meta">
+                <span class="create-time"><%= topic.create_at %></span>
+                <span class="author"><%= topic.author %></span>
+                <span class="visit-count"><%= topic.visit_count %></span>
+                <span class="update-at"><%= topic.update_at  %></span>
+                <span class="topic-tab"><%= topic.tab %></span>
+              </div>
+            </div>
+            <div class="topic-content">
+              <%- topic.parsedHtml %>
+            </div>
+          </article>
+        </div>
+
+        <div class="side-bar col-sm-3">
+            作者
+        </div>
+      </div>
+    </div>
+    @@include('./common/foot.html')
+    <script type="text/javascript" src='../js/base.js'></script>
+    <script type="text/javascript" src='../js/topic.js'></script>
+  </body>
+</html>

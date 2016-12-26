@@ -1,0 +1,35 @@
+.content{
+  margin-top: 1em;
+  .main{
+    .article{
+      background-color: #fff;
+      padding: 1em;
+      .topic-header{
+
+        .topic-title{
+          font-size: 1.5em;
+        }
+
+        .topic-meta{
+          display: flex;
+
+          span{
+            &:before{
+              content: '。';
+            }
+          }
+
+        }
+      }
+
+      .topic-content{
+
+      }
+    }
+
+  }
+
+  .side-bar{
+    background-color: #fff;
+  }
+}

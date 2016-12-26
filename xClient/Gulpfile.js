@@ -131,9 +131,10 @@ gulp.task('watch', function () {
     });
 
     gulp.watch(['css/*.css', 'css/*.sass', 'css/*.scss','css/**/*.scss',], function (event) {
-        runSequence(
-            [ 'copy:img', 'build:css'],
-            'revreplace');
+        runSequence('clean',
+            ['fileinclude', 'copy:img', 'build:css', 'build:js'],
+            'revreplace'
+            );
     });
 
     gulp.watch('html/**/*.html', function (event) {
