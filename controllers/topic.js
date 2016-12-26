@@ -9,6 +9,8 @@ const validator = require('validator');
  * 话题详情页
  */
 exports.get=function (req,res) {
+    const topicId = req.params.id;
+    Topic.findbyid('');
     res.end('q');
 };
 
