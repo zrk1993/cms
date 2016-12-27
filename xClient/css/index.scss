@@ -3,10 +3,9 @@
 .content {
   margin-top: 1em;
   .main {
-    flex-grow: 10;
-    flex-basis: 10em;
     background-color: #fefefe;
     border: 1px solid #e2e1e1;
+    padding: 0;
 
     .nav-bar {
       display: flex;
@@ -145,8 +144,10 @@
 
     .pagination{
       display: flex;
+      padding: .5em 1em;
       ul{
         display: flex;
+        margin-bottom: 0;
         li{
           border: 1px solid #ddd;
           padding: 6px 12px;
@@ -175,11 +176,7 @@
   }
 
   .sidebar {
-    flex-grow: 3;
-    flex-basis: 3em;
-    margin-left: 1em;
     font-size: .9em;
-
     .column {
       background: #ffffff;
       padding: .8em 1em;

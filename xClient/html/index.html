@@ -14,94 +14,96 @@
 </head>
 <body>
 @@include('./common/head.html')
-<div class="container content">
-    <div class="main">
-        <div class="nav-bar">
-            <a href="/?tab=all" class="nav-item <%= tab=='all'?'select':''%>">热门</a>
-            <a href="/?tab=good" class="nav-item <%= tab=='good'?'select':''%>">精华</a>
-            <a href="/?tab=vote" class="nav-item <%= tab=='vote'?'select':''%>">投票</a>
-            <a href="/?tab=last" class="nav-item <%= tab=='last'?'select':''%>">最近</a>
-            <a href="/?tab=no_replay" class="nav-item <%= tab=='no_replay'?'select':''%>">零回复</a>
-        </div>
-        <ul class="topics">
-            <% topics.forEach(function(topic){ %>
-            <li class="topic">
-                <div class="user-info" title="<%= topic.author_id%>">
-                    <div class="user-avatar" style="background-image: url('<%= topic.picture %>')"></div>
-                </div>
-                <div class="topic-count">
-                    <div class="count-vote" title="点赞数"><%= topic.vote_count %></div>
-                    <div class="count-set">
-                        <div class="count-replies" title="回复数"><%= topic.reply_count %></div>
-                        <div class="count_seperator">/</div>
-                        <div class="count-visits" title="浏览数"><%= topic.visit_count %></div>
+<div class="container">
+    <div class="content row">
+        <div class="main col-sm-9">
+            <div class="nav-bar">
+                <a href="/?tab=all" class="nav-item <%= tab=='all'?'select':''%>">热门</a>
+                <a href="/?tab=good" class="nav-item <%= tab=='good'?'select':''%>">精华</a>
+                <a href="/?tab=vote" class="nav-item <%= tab=='vote'?'select':''%>">投票</a>
+                <a href="/?tab=last" class="nav-item <%= tab=='last'?'select':''%>">最近</a>
+                <a href="/?tab=no_replay" class="nav-item <%= tab=='no_replay'?'select':''%>">零回复</a>
+            </div>
+            <ul class="topics">
+                <% topics.forEach(function(topic){ %>
+                <li class="topic">
+                    <div class="user-info" title="<%= topic.author_id%>">
+                        <div class="user-avatar" style="background-image: url('<%= topic.picture %>')"></div>
                     </div>
-                </div>
-                <div class="topic-info">
-                    <div class="topic-label"><%= topic.tab %></div>
-                    <div class="topic-title"><a href="/topic/<%=topic.id%>"><%= topic.title %></a></div>
-                </div>
-                <div class="topic-reply-last">
-                    <div class="reply-user">
-                        <div class="user-avatar" style="background-image: url('<%= topic.author_id %>')"></div>
+                    <div class="topic-count">
+                        <div class="count-vote" title="点赞数"><%= topic.vote_count %></div>
+                        <div class="count-set">
+                            <div class="count-replies" title="回复数"><%= topic.reply_count %></div>
+                            <div class="count_seperator">/</div>
+                            <div class="count-visits" title="浏览数"><%= topic.visit_count %></div>
+                        </div>
                     </div>
-                    <div class="reply-time"><%= topic.last_reply_ago %></div>
-                </div>
-            </li>
-            <%}) %>
-        </ul>
-        <div class="pagination">
-            <ul>
-                        <li class="pre"><a href="/?page=<%= current_page-1 %>">上一页</a></li>
-                <% if(page_count < 10){ %>
-                    <% for(var i=1 ;i < page_count ;i++){ %>
-                        <li class="active"><a  href="/?page=<%= i %>"><%= i %></a></li>
-                    <% } %>
-                <% }else{  %>
-                 <% if(current_page > 5 && current_page < page_count ){ %>
-                        <li class="<%= current_page==1? 'active':'' %>"><a href="/?page=1">1</a></li>
-                        <li class="<%= current_page==2? 'active':'' %>"><a href="/?page=2">2</a></li>
-                        <li class="disable"><a>...</a></li>
-                        <li class="<%= current_page== (current_page - 1) ? 'active':'' %>"><a href="/?page=<%= current_page - 1 %>"><%= current_page - 1 %></a></li>
-                        <li class="<%= current_page==current_page ? 'active':'' %>"><a href="/?page=<%= current_page %>"><%= current_page %></a></li>
-                        <li class="<%= current_page==(current_page +1) ? 'active':'' %>"><a href="/?page=<%= current_page + 1 %>"><%= current_page +1  %></a></li>
-                    <% }else{ %>
-                        <% for(var j=1 ;j < 7 ;j++){ %>
-                        <li class="<%= current_page== j ? 'active':'' %>"><a href="/?page=<%= j%>"><%= j %></a></li>
-                        <% } %>
-                    <% } %>
-                        <li class="disable"><a>...</a></li>
-                        <li class="<%= current_page==(page_count - 1) ? 'active':'' %>"><a href="/?page=<%= page_count-1 %>"><%= page_count - 1 %></a></li>
-                        <li class="<%= current_page==page_count ? 'active':'' %>"><a href="/?page=<%= page_count%>"><%= page_count  %></a></li>
-                <% } %>
-                        <li class="next"><a href="/?page=<%= page_count+1 %>">下一页</a></li>
+                    <div class="topic-info">
+                        <div class="topic-label"><%= topic.tab %></div>
+                        <div class="topic-title"><a href="/topic/<%=topic.id%>"><%= topic.title %></a></div>
+                    </div>
+                    <div class="topic-reply-last">
+                        <div class="reply-user">
+                            <div class="user-avatar" style="background-image: url('<%= topic.author_id %>')"></div>
+                        </div>
+                        <div class="reply-time"><%= topic.last_reply_ago %></div>
+                    </div>
+                </li>
+                <%}) %>
             </ul>
+            <div class="pagination">
+                <ul>
+                    <li class="pre"><a href="/?page=<%= current_page-1 %>">上一页</a></li>
+                    <% if(page_count < 10){ %>
+                    <% for(var i=1 ;i < page_count ;i++){ %>
+                    <li class="active"><a  href="/?page=<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% }else{  %>
+                    <% if(current_page > 5 && current_page < page_count ){ %>
+                    <li class="<%= current_page==1? 'active':'' %>"><a href="/?page=1">1</a></li>
+                    <li class="<%= current_page==2? 'active':'' %>"><a href="/?page=2">2</a></li>
+                    <li class="disable"><a>...</a></li>
+                    <li class="<%= current_page== (current_page - 1) ? 'active':'' %>"><a href="/?page=<%= current_page - 1 %>"><%= current_page - 1 %></a></li>
+                    <li class="<%= current_page==current_page ? 'active':'' %>"><a href="/?page=<%= current_page %>"><%= current_page %></a></li>
+                    <li class="<%= current_page==(current_page +1) ? 'active':'' %>"><a href="/?page=<%= current_page + 1 %>"><%= current_page +1  %></a></li>
+                    <% }else{ %>
+                    <% for(var j=1 ;j < 7 ;j++){ %>
+                    <li class="<%= current_page== j ? 'active':'' %>"><a href="/?page=<%= j%>"><%= j %></a></li>
+                    <% } %>
+                    <% } %>
+                    <li class="disable"><a>...</a></li>
+                    <li class="<%= current_page==(page_count - 1) ? 'active':'' %>"><a href="/?page=<%= page_count-1 %>"><%= page_count - 1 %></a></li>
+                    <li class="<%= current_page==page_count ? 'active':'' %>"><a href="/?page=<%= page_count%>"><%= page_count  %></a></li>
+                    <% } %>
+                    <li class="next"><a href="/?page=<%= page_count+1 %>">下一页</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="sidebar">
+        <div class="sidebar col-sm-3">
 
-        <div class="column">
-            <div class="title">小贴士</div>
-            <div class="content">
-q
+            <div class="column">
+                <div class="title">小贴士</div>
+                <div class="content">
+                    q
+                </div>
             </div>
-        </div>
-        <div class="column">
-            <div class="title">推荐资源</div>
-            <div class="content">
-q
+            <div class="column">
+                <div class="title">推荐资源</div>
+                <div class="content">
+                    q
+                </div>
             </div>
-        </div>
-        <div class="column">
-            <div class="title">活跃用户</div>
-            <div class="content">
-q
+            <div class="column">
+                <div class="title">活跃用户</div>
+                <div class="content">
+                    q
+                </div>
             </div>
-        </div>
-        <div class="column">
-            <div class="title">统计信息</div>
-            <div class="content">
-q
+            <div class="column">
+                <div class="title">统计信息</div>
+                <div class="content">
+                    q
+                </div>
             </div>
         </div>
     </div>

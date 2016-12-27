@@ -17,7 +17,7 @@
     <div class='container content'>
       <div class="row">
         <div class="main col-sm-9">
-          <article class="article">
+          <div class="article">
             <div class="topic-header">
               <h1 class="topic-title"><%= topic.title %></h1>
               <div class="topic-meta">
@@ -29,9 +29,11 @@
               </div>
             </div>
             <div class="topic-content">
-              <%- topic.parsedHtml %>
+              <div class="markdown-body">
+                <%- topic.content %>
+              </div>
             </div>
-          </article>
+          </div>
         </div>
 
         <div class="side-bar col-sm-3">

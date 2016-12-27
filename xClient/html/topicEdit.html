@@ -14,43 +14,46 @@
   </head>
   <body>
     @@include('./common/head.html')
-    <div class='container content row'>
-      <div class="main column column-67">
-        <form class="topic-edit" action="/topic/add" method="post">
-          <h2 class="title">发布话题到网站</h2>
-          <label class="topic-title">
-            <i class="icon-user-line"></i>
-            <select type="text" name="tab" class="log-input login-name">
-              <option value="">请选择板块</option>
-              <option value="分享">分享</option>
-              <option value="问答">问答</option>
-              <option value="招聘">招聘</option>
-            </select>
-          </label>
-          <label class="topic-title">
-            <i class="icon-user-line"></i>
-            <input type="text" name="title" class="log-input login-name"
-                   placeholder="标题字数10字以上" autocomplete="off" >
-          </label>
-          <label class="topic-content">
-            <i class="icon-lock-line"></i>
-            <textarea  type="text" name="content" autocomplete="off"
-                       class="log-input login-pwd mls" placeholder="请使用Markdown语法"></textarea>
-          </label>
-          <button class="topic-button">发布</button>
-        </form>
-      </div>
-      <div class="side-bar column column-33">
-        <h2 class="title">Markdown 语法参考</h2>
-        <div>
-          <p>### 单行的标题</p>
-          <p>**粗体**</p>
-          <p>`console.log('行内代码')`</p>
-          <p>```js\n code \n``` 标记代码块</p>
-          <p>[内容](链接)</p>
-          <p>![文字说明](图片链接)</p>
+    <div class='container'>
+      <div class="content row">
+        <div class="main col-sm-9">
+          <form class="topic-edit" action="/topic/add" method="post">
+            <h2 class="title">发布话题到网站</h2>
+            <label class="topic-title">
+              <i class="icon-user-line"></i>
+              <select type="text" name="tab" class="log-input login-name">
+                <option value="">请选择板块</option>
+                <option value="分享">分享</option>
+                <option value="问答">问答</option>
+                <option value="招聘">招聘</option>
+              </select>
+            </label>
+            <label class="topic-title">
+              <i class="icon-user-line"></i>
+              <input type="text" name="title" class="log-input login-name"
+                     placeholder="标题字数10字以上" autocomplete="off" >
+            </label>
+            <label class="topic-content">
+              <i class="icon-lock-line"></i>
+              <textarea  type="text" name="content" autocomplete="off"
+                         class="log-input login-pwd mls" placeholder="请使用Markdown语法"></textarea>
+            </label>
+            <button class="topic-button">发布</button>
+          </form>
+        </div>
+        <div class="side-bar col-sm-3">
+          <h2 class="title">Markdown 语法参考</h2>
+          <div>
+            <p>### 单行的标题</p>
+            <p>**粗体**</p>
+            <p>`console.log('行内代码')`</p>
+            <p>```js\n code \n``` 标记代码块</p>
+            <p>[内容](链接)</p>
+            <p>![文字说明](图片链接)</p>
+          </div>
         </div>
       </div>
+
     </div>
     @@include('./common/foot.html')
     <script type="text/javascript" src='../js/base.js'></script>

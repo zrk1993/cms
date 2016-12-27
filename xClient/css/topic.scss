@@ -1,21 +1,30 @@
+@import "./lib/github.markdown";
+
 .content{
   margin-top: 1em;
   .main{
+    background-color: #fff;
+    padding: 2em;
     .article{
-      background-color: #fff;
-      padding: 1em;
       .topic-header{
-
+        border-bottom: 1px solid #ddd;
+        margin-bottom: .5em;
+        padding-bottom: .5em;
         .topic-title{
-          font-size: 1.5em;
+          font-size: 1.7em;
+          font-weight: 400;
+          margin: 0;
+          padding-bottom: .3em;
         }
 
         .topic-meta{
           display: flex;
+          font-size: .9em;
 
           span{
+            padding: 0 .1em;
             &:before{
-              content: '。';
+              content: '•';
             }
           }
 
@@ -23,13 +32,15 @@
       }
 
       .topic-content{
-
+        margin-top: 10px;
+        padding-bottom: 2em;
       }
     }
 
   }
 
   .side-bar{
+    border-left: 1em solid #eee;
     background-color: #fff;
   }
 }

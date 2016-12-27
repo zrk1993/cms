@@ -37,18 +37,24 @@
         align-self: center;
         padding: 0 .8em;
         cursor: pointer;
-        font-size: 1.3em;
+        font-size: 20px;
+        font-weight: 500;
+        color: #bbb;
       }
 
       .search {
         padding: 0;
-        margin-bottom: -.2em;
         .form-search {
           display: flex;
           align-items: center;
           margin-bottom: 0;
 
+          i{
+            font-size: 23px;
+          }
+
           .form-group {
+            display: none;
             font-size: .6em;
             input {
               border: none;

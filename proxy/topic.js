@@ -3,7 +3,7 @@
  */
 const models     = require('../models');
 const Topic      = models.Topic;
-
+const User      = require('../proxy/user');
 
 
 exports.getTopicById = function (id, callback) {
@@ -18,7 +18,12 @@ exports.newAndSave = function (title, content, tab, authorId, callback) {
     topic.tab        = tab;
     topic.author_id = authorId;
 
-    topic.save(callback);
+    User.getUserById(authorId,function (err, user) {
+        topic.picture = user.picture;
+
+        topic.save(callback);
+    });
+
 };
 
 

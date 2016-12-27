@@ -5,8 +5,8 @@
 		</a>
 		<div class="top-nav">
 			<div class="nav-item action search ">
-				<form class="navbar-form form-search active" action="/search" method="GET">
-					<i class="ion-ios-search-strong"></i>
+				<form class="form-search active" action="/search" method="GET">
+					<i class="ion-ios-search-strong nav-item"></i>
 					<div class="form-group">
 						<input class="form-control" name="q" type="text" value="" placeholder="搜索本站内容">
 					</div>
@@ -15,9 +15,9 @@
 			<a href="/topic/add" class="nav-item action add ion-plus">
 
 			</a>
-			<div class="nav-item action  ion-android-notifications">
+			<a class="nav-item action  ion-android-notifications">
 
-			</div>
+			</a>
 			<div class="nav-item user">
 				<% if(typeof(user) == "undefined"){ %>
 				<div class="sign">

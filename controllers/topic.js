@@ -14,23 +14,39 @@ exports.get=function (req,res) {
     Topic.getTopicById(req.params.id,(err,topic)=>{
         if(err)return res.status(404).end();
 
-        topic.html = marked(topic.content, (err, parsedHtml)=>{
-
-            topic.parsedHtml = parsedHtml;
-            topic.create_at='1個月前';
-            topic.author = '小王';
-            topic.visit_count='1000';
-            topic.update_at='一天前';
-            topic.tab = '精華';
-
-            res.render('topic',{topic:topic});
-
-        })
+        parseTopic(topic, (err, t)=>{
+            if(err){res.status(500).end('解析错误');}
+            res.render('topic',{'topic' : t});
+        });
 
     });
 
 
 };
+
+/**
+ * 格式化一个topicmdel 为我们要的
+ * @param topicModel
+ * @param cb {err, topic}
+ */
+function parseTopic(topicModel, cb) {
+    const topic = {};
+    //解析markdown
+    marked(topicModel.content, (err, parsedHtml)=>{
+
+        topic.content = parsedHtml;
+        topic.create_at='1個月前';
+        topic.author = '小王';
+        topic.visit_count='1000';
+        topic.update_at='一天前';
+        topic.tab = '精華';
+        topic.title = topicModel.title || 'aa';
+        topic.tab = topicModel.tab;
+
+        cb(null, topic);
+
+    })
+}
 
 /**
  * GET /topic/add
@@ -71,6 +87,6 @@ exports.add = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        res.end('add ok')
+        res.redirect('/topic/'+topic.id);
     });
 };
